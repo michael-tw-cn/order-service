@@ -23,6 +23,14 @@ spec:
       - name: {{service}}
         image: {{image}}
         imagePullPolicy: IfNotPresent
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 9082
+          initialDelaySeconds: 10
+          timeoutSeconds: 2
+          periodSeconds: 3
+          failureThreshold: 1
         ports:
         - containerPort: 9082
         env:
