@@ -9,7 +9,7 @@ spec:
     matchLabels:
       k8s-app: {{service}}
   strategy:
-    rollingupdate:
+    rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
     type: RollingUpdate
